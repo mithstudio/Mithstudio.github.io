@@ -234,48 +234,30 @@ nav{ background:rgba(12,10,7,.88); backdrop-filter:blur(18px); position:relative
     <div class="mat-row"><span class="mat" data-en="Modern" data-vi="Hiện đại">Hiện đại</span><span class="mat" data-en="Sophisticated" data-vi="Tinh tế">Tinh tế</span><span class="mat" data-en="Functional" data-vi="Tiện dụng">Tiện dụng</span><span class="mat" data-en="Elegant" data-vi="Thanh lịch">Thanh lịch</span></div>
   </div>
   <!-- CLOSING PANEL -->
-<div class="p pi" style="width:86vw" data-i="22">
-
-  <img class="end-img"
-    src="https://lemon-interior.com.ua/wp-content/uploads/2024/01/pissarro-06-min.png"
-    alt="DN49 - modern interior final view"
-    data-full="https://lemon-interior.com.ua/wp-content/uploads/2024/01/pissarro-06-min.png">
-
-  <div class="end-veil"></div>
-
-  <div class="end-foot">
-
-    <!-- FINAL STATEMENT -->
-    <p class="end-q"
-      data-en="This project reflects my approach to interior visualization — focusing on clarity, material balance, and atmospheric lighting. The goal is not only to represent the space accurately, but to convey a refined and livable environment through carefully composed visual moments."
-
-      data-vi="Dự án này thể hiện cách tôi tiếp cận hình ảnh nội thất — tập trung vào sự rõ ràng, vật liệu và ánh sáng không gian. Mục tiêu không chỉ là tái hiện không gian một cách chính xác mà còn truyền tải một môi trường sống tinh tế thông qua các khung hình được bố cục cẩn thận.">
-      
-      This project reflects my approach to interior visualization — focusing on clarity, material balance, and atmospheric lighting. The goal is not only to represent the space accurately, but to convey a refined and livable environment through carefully composed visual moments.
-    </p>
-
-    <!-- META -->
-    <div class="end-meta">
-
-      <span class="end-tag"
-        data-en="DN49 · Nyvky-Park · Kyiv"
-        data-vi="DN49 · Nyvky-Park · Kyiv">
-        DN49 · Nyvky-Park · Kyiv
-      </span>
-
-      <p class="end-name"
-        data-en="Mars Bansiti · 3D Interior Designer · 114 m²"
-        data-vi="Mars Bansiti · 3D Interior Designer · 114 m²">
-        Mars Bansiti · 3D Interior Designer · 114 m²
-      </p>
-
+  <div class="p pi" style="width:86vw" data-i="22">
+    <img class="end-img" src="https://lemon-interior.com.ua/wp-content/uploads/2024/01/pissarro-06-min.png" alt="DN49 - modern interior final view" data-full="https://lemon-interior.com.ua/wp-content/uploads/2024/01/pissarro-06-min.png">
+    <div class="end-veil"></div>
+    <div class="end-foot">
+      <p class="end-q" data-en="The DN49 project at RC Nyvky-Park (Beresteiskyi Ave, 67, Kyiv) embodies LEMON Interior Design's turnkey renovation expertise — a spacious 114 m² apartment with open-plan living, primary suite, guest bedroom, wardrobe, and refined bathrooms, captured through premium visualizations." data-vi="Dự án DN49 tại khu phức hợp Nyvky-Park (Đại lộ Beresteiskyi 67, Kyiv) thể hiện chuyên môn cải tạo chìa khóa trao tay của LEMON Interior Design — căn hộ rộng 114 m² với không gian sống mở, phòng master, phòng khách, phòng thay đồ và phòng tắm tinh tế, được ghi lại qua các hình ảnh trực quan cao cấp.">Dự án DN49 tại khu phức hợp Nyvky-Park (Đại lộ Beresteiskyi 67, Kyiv) thể hiện chuyên môn cải tạo chìa khóa trao tay của LEMON Interior Design — căn hộ rộng 114 m² với không gian sống mở, phòng master, phòng khách, phòng thay đồ và phòng tắm tinh tế, được ghi lại qua các hình ảnh trực quan cao cấp.</p>
+      <div class="end-meta"><span class="end-tag" data-en="DN49 · Nyvky-Park · Kyiv" data-vi="DN49 · Nyvky-Park · Kyiv">DN49 · Nyvky-Park · Kyiv</span><p class="end-name" data-en="LEMON Interior Design · 114 m²" data-vi="LEMON Interior Design · 114 m²">LEMON Interior Design · 114 m²</p></div>
     </div>
-
+    <span class="wm" style="font-size:clamp(100px,13vw,170px)">23</span>
   </div>
-
-  <span class="wm" style="font-size:clamp(100px,13vw,170px)">23</span>
-
-</div>
+</div></div>
+<div id="counter"><span id="cnt-cur">01</span><div class="cnt-track"><div class="cnt-fill" id="cnt-fill"></div></div><span id="cnt-tot">23</span></div>
+<div id="hint"><span data-en="Scroll" data-vi="Cuộn">Cuộn</span><div class="h-line"></div></div>
+<div id="lightbox" class="lb-overlay"><div class="lb-close" id="lbClose">✕</div><img id="lbImg" class="lb-img" src="" alt="Full size view"><div id="lbCaption" class="lb-caption"></div></div>
+<script src="../assets/js/shared.js"></script>
+<script>
+const track = document.getElementById('track'), vp = document.getElementById('vp'), prog = document.getElementById('prog');
+const hint = document.getElementById('hint'), cntCur = document.getElementById('cnt-cur'), cntFill = document.getElementById('cnt-fill');
+let tx=0, cx=0, maxS=0;
+const piEls = Array.from(document.querySelectorAll('.p'));
+const TOTAL = piEls.length;
+document.getElementById('cnt-tot').textContent = String(TOTAL).padStart(2,'0');
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function getMax(){ return track.scrollWidth - vp.offsetWidth; }
+window.addEventListener('wheel', e=>{ e.preventDefault(); maxS=getMax(); tx=clamp(tx+e.deltaY*1.55+e.deltaX,0,maxS); },{passive:false});
 
 // LIGHTBOX FUNCTIONALITY
 const lightbox = document.getElementById('lightbox');
