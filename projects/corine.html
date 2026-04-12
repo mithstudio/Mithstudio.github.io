@@ -16,7 +16,6 @@ body{ height:100vh; overflow:hidden; background:var(--bg); }
 /* REMOVE ALL SCROLLBARS - navigation and viewport */
 html, body { overflow-x: hidden; }
 nav { overflow-x: hidden; width: 100%; }
-#vp{ overflow: hidden; }
 
 nav{ background:rgba(12,10,7,.88); backdrop-filter:blur(18px); position:relative; z-index:500; width:100%; overflow-x: hidden; }
 .nav-links { display: flex; flex-wrap: nowrap; }
@@ -34,7 +33,12 @@ nav{ background:rgba(12,10,7,.88); backdrop-filter:blur(18px); position:relative
 .h-line{ width:32px; height:1px; background:var(--gold); position:relative; overflow:hidden; }
 .h-line::after{ content:'';position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--text); animation:slide 2s ease-in-out infinite; }
 @keyframes slide{ 0%{left:-100%} 50%{left:100%} 100%{left:100%} }
-#vp{ position:fixed; inset:0; top:59.5px; overflow:hidden; }
+#vp {
+  position: fixed;
+  inset: 0;
+  top: 59.5px;
+  overflow: hidden; /* 🔥 kills scrollbar completely */
+}
 #track{ display:flex; flex-direction:row; height:calc(100vh - 59.5px); will-change:transform; gap: var(--panel-gap); padding-right: var(--panel-gap); }
 .p{ flex-shrink:0; height:100%; position:relative; overflow:hidden; }
 .pi img{ width:100%; height:100%; object-fit:cover; display:block; transition:filter .5s; cursor:none; }
